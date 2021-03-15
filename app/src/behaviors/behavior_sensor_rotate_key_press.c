@@ -59,7 +59,7 @@ static int behavior_sensor_rotate_key_press_init(const struct device *dev) {
 }
 
 static int on_sensor_binding_triggered(struct zmk_behavior_binding *binding,
-                                       const struct device *sensor, int64_t timestamp) {
+                                       const struct sensor_value value, int64_t timestamp) {
     struct sensor_value value;
     int err;
     const struct device *dev = device_get_binding(binding->behavior_dev);
@@ -68,13 +68,6 @@ static int on_sensor_binding_triggered(struct zmk_behavior_binding *binding,
     uint32_t keycode;
     LOG_DBG("inc keycode 0x%02X dec keycode 0x%02X", binding->param1, binding->param2);
     LOG_DBG("cfg->modifier_key: 0x%02x, ms timeout: 0x%02x", cfg->modifier_key, cfg->mod_timeout_ms);
-
-    err = sensor_channel_get(sensor, SENSOR_CHAN_ROTATION, &value);
-
-    if (err) {
-        LOG_WRN("Failed to ge sensor rotation value: %d", err);
-        return err;
-    }
 
     switch (value.val1) {
     case 1:
