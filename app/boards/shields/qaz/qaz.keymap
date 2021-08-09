@@ -35,7 +35,7 @@
     &hm LGUI A &hm LALT S &hm LCTRL D &hm LSHFT F &kp G  &kp H  &hm RSHFT J &hm RCTRL K &hm RALT L &hm RGUI RET
     &kp Z                 &kp X       &kp C       &kp V  &kp B  &kp N       &kp M       &kp COMMA  &kp DOT
     &kp LSHFT  &kp LGUI   &kp LALT       &lt NAV RET    &lt NUM_SYM SPACE   &kp COLON   &kp SQT    &kp FSLH
-            >;
+    >;
         };
         num_sym {
             bindings = <
