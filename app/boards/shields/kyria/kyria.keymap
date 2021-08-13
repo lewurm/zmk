@@ -62,7 +62,7 @@
 	                      &kp A   &kp LSHIFT &hm LWIN  SPACE &kp BSPC  &kp ESC                &lt NAV RET &mo NUM_SYM &kp RCTRL &kp RSHIFT &kp C_MUTE
 			>;
 
-			sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &inc_dec_kp PG_UP PG_DN>;
+			sensor-bindings = <&inc_dec_kp LS(LA(TAB)) RA(TAB) &inc_dec_kp PG_UP PG_DN>;
 		};
 
 		nav {
