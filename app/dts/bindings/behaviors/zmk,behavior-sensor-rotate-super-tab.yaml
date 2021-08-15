@@ -1,0 +1,19 @@
+# Copyright (c) 2020 The ZMK Contributors
+# SPDX-License-Identifier: MIT
+
+description: Sensor rotate super tab behavior
+
+compatible: "zmk,behavior-sensor-rotate-super-tab"
+
+properties:
+  label:
+    type: string
+    required: true
+  "#sensor-binding-cells":
+    type: int
+    required: true
+    const: 2
+
+sensor-binding-cells:
+  - param1
+  - param2

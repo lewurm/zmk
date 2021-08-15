@@ -1,0 +1,15 @@
+/*
+ * Copyright (c) 2020 The ZMK Contributors
+ *
+ * SPDX-License-Identifier: MIT
+ */
+
+/ {
+	behaviors {
+		/omit-if-no-ref/ inc_dec_super_tab: behavior_sensor_rotate_super_tab {
+			compatible = "zmk,behavior-sensor-rotate-super-tab";
+			label = "ENC_SUPER_TAB";
+			#sensor-binding-cells = <2>;
+		};
+	};
+};
