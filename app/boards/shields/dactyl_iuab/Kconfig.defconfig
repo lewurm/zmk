@@ -22,6 +22,9 @@ if SHIELD_DACTYL_IUAB_LEFT || SHIELD_DACTYL_IUAB_RIGHT
 config ZMK_SPLIT
 	default y
 
+config ZMK_SLEEP
+	default y
+
 if ZMK_DISPLAY
 
 config I2C
