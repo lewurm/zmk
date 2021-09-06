@@ -40,8 +40,8 @@
     &kp ESC    &kp A   &kp S   &kp D   &kp F     &kp G            &kp H   &kp J   &kp K    &kp L   &kp SEMI &kp SQT
     &kp LSHFT  &kp Z   &kp X   &kp C   &kp V     &kp B            &kp N   &kp M   &kp CMMA &kp DOT &kp FSLH &kp RSHFT
                        &kp UP  &kp DOWN          &kp C_PP         &kp C_MUTE      &kp LEFT &kp RIGHT
-                                      &kp LSHIFT &lt FUNC SPACE   &kp RALT   &kp RET
-                                      &kp LWIN   &kp BSPC         &kp RSHIFT &kp RCTRL
+                                      &kp LWIN   &lt FUNC SPACE   &kp RALT   &kp RET
+                                      &kp LSHIFT &kp BSPC         &kp RSHIFT &kp RCTRL
 			>;
 
 			sensor-bindings = <&inc_dec_kp UP DOWN &inc_dec_kp C_VOL_DN C_VOL_UP>;
