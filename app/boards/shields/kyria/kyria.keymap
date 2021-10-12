@@ -20,8 +20,8 @@
             compatible = "zmk,behavior-hold-tap";
             label = "homerow mods";
             #binding-cells = <2>;
-            tapping-term-ms = <225>;
-            flavor = "tap-preferred";
+            tapping-term-ms = <250>;
+            flavor = "balanced";
             bindings = <&kp>, <&kp>;
         };
 
@@ -30,7 +30,7 @@
             label = "encoder mods";
             #sensor-binding-cells = <2>;
             modifier-key = <LWIN>;
-            mod-timeout-ms = <2000>;
+            mod-timeout-ms = <650>;
         };
     };
 };
@@ -40,7 +40,7 @@
 		compatible = "zmk,combos";
 		combo_q {
 			timeout-ms = <50>;
-			key-positions = <0 1>;
+			key-positions = <1 2>;  // Q W
 			bindings = <&kp Q>;
         };
 	};
@@ -52,11 +52,55 @@
 
 		default_layer {
 			bindings = <
-    &none &kp TAB         &kp W         &kp E     &kp R         &kp T            &kp Y  &kp U        &kp I         &kp O         &hm RALT P        &none
-    &none &kp A           &kp S         &kp D     &kp F         &kp G            &kp H  &kp J        &kp K         &kp L         &kp SEMI          &none
-    &none &hm LSHIFT Z    &lt NAV X     &kp C     &kp V         &kp B            &kp GRAVE  &kp SQT
-                                                  &kp EQUAL     &hm RALT MINUS   &kp N  &kp M        &kp COMMA     &kp DOT       &hm RSHIFT FSLH   &none
-	                      &kp C_PP   &kp LSHIFT &hm LWIN SPACE  &kp BSPC  &kp ESC                &lt NAV RET &mo NUM_SYM &kp RCTRL &kp RSHIFT &kp C_MUTE
+    &none &kp TAB         &kp W         &kp E       &kp R         &kp T            &kp Y  &kp U        &kp I         &kp O         &kp P             &none
+    &none &kp A           &kp S         &kp D       &kp F         &kp G            &kp H  &kp J        &kp K         &kp L         &kp SEMI          &none
+    &none &kp Z           &kp X         &kp C       &kp V         &kp B            &kp GRAVE  &kp SQT
+                                                    &kp EQUAL     &hm RALT MINUS   &kp N  &kp M        &kp COMMA     &kp DOT       &kp FSLH          &none
+	                      &kp C_PP   &kp LWIN   &kp SPACE         &mo NAV          &kp ESC       &kp RET    &mo NUM_SYM   &kp RSHIFT &kp RCTRL  &kp C_MUTE
+			>;
+
+			sensor-bindings = <&encmod LS(TAB) TAB &inc_dec_kp PG_UP PG_DN>;
+		};
+
+		num_sym {
+			bindings = <
+    &none &kp EXCL      &kp AT        &kp HASH        &kp DOLLAR    &kp PRCNT        &kp CARET  &kp AMPS     &kp ASTRK     &trans          &trans     &none
+    &none &kp Q         &kp LBRC      &kp RBRC        &kp LPAR      &kp RPAR         &kp LEFT   &kp DOWN     &kp UP        &kp RIGHT       &kp RWIN   &none
+    &none &kp N5        &kp LBKT      &kp RBKT        &kp N2        &kp N1           &kp BSPC   &mo NAV
+                                                      &trans        &trans           &kp MINUS  &kp N7       &kp N8        &kp N9          &kp N0     &none
+	                      &trans     &trans         &kp BSPC        &mo NAV &kp LSHIFT       &trans      &trans      &trans    &trans     &trans    
+			>;
+
+			sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &inc_dec_kp UP DOWN>;
+		};
+
+		nav {
+			bindings = <
+    &none &kp Q           &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3            &bt BT_CLR   &kp N7       &kp N8        &kp N9      &bt BT_CLR &none
+    &none &kp Q           &trans          &kp N4          &kp N5        &kp N6           &kp LEFT     &kp N4       &kp N5        &kp N6      &kp EQUAL  &none
+    &none &rgb_ug RGB_HUI &rgb_ug RGB_HUD &kp N1          &kp N2        &kp N3           &kp DOT      &kp RET
+                                                      &out OUT_USB  &out OUT_BLE      &rgb_ug RGB_EFF &kp N1       &kp N2        &kp N3      &kp RET    &none
+	                      &trans     &trans         &trans    &trans    &trans           &trans      &mo NUM_SYM   &kp N0    &kp DOT    &rgb_ug RGB_TOG
+			>;
+
+			sensor-bindings = <&inc_dec_kp C_BRI_UP C_BRI_DN &inc_dec_kp PG_UP PG_DN>;
+		};
+
+	};
+};
+
+#if 0
+/ {
+	keymap {
+		compatible = "zmk,keymap";
+
+		default_layer {
+			bindings = <
+    &none &kp TAB         &kp W         &kp E       &kp R         &kp T            &kp Y  &kp U        &kp I         &kp O         &kp P             &none
+    &none &hm LWIN A      &hm LALT S    &hm LCTRL D &hm LSHIFT F  &kp G            &kp H  &hm RSHIFT J &hm RCTRL K   &hm LALT L    &hm RWIN SEMI     &none
+    &none &kp Z           &lt NAV X     &kp C       &kp V         &kp B            &kp GRAVE  &kp SQT
+                                                    &kp EQUAL     &hm RALT MINUS   &kp N  &kp M        &kp COMMA     &kp DOT       &kp FSLH          &none
+	                      &kp C_PP   &kp LSHIFT     &hm LWIN SPACE  &kp BSPC  &kp ESC          &lt NAV RET &mo NUM_SYM &kp RCTRL &kp RSHIFT &kp C_MUTE
 			>;
 
 			sensor-bindings = <&inc_dec_kp UP DOWN &inc_dec_kp C_VOL_DN C_VOL_UP>;
@@ -65,10 +109,10 @@
 		num_sym {
 			bindings = <
     &none &kp EXCL      &kp AT        &kp HASH        &kp DOLLAR    &kp PRCNT        &kp CARET  &kp AMPS     &kp ASTRK     &trans          &trans     &none
-    &none &kp Q         &kp LBRC      &kp LBKT        &kp LPAR      &trans           &kp MINUS  &kp RPAR     &kp RBKT      &kp RBRC        &trans     &none
-    &none &kp N5        &kp N4        &kp N3          &kp N2        &kp N1           &kp BSPC   &mo NAV
-                                                      &mo NUM_SYM   &kp SQT          &kp N6     &kp N7       &kp N8        &kp N9          &kp N0     &none
-	                      &kp C_PP   &kp LSHIFT &hm LWIN  SPACE &kp BSPC  &kp ESC                &lt NAV RET &mo NUM_SYM &kp RCTRL &kp RSHIFT &kp C_MUTE
+    &none &kp Q         &kp LBRC      &kp RBRC        &kp LPAR      &kp RPAR         &kp H      &kp J        &kp K         &kp L           &trans     &none
+    &none &kp N5        &kp LBKT      &kp RBKT        &kp N2        &kp N1           &kp BSPC   &mo NAV
+                                                      &mo NUM_SYM   &kp SQT          &kp MINUS  &kp N7       &kp N8        &kp N9          &kp N0     &none
+	                      &trans     &trans         &trans          &trans &trans           &trans      &trans      &trans    &trans     &trans    
 			>;
 
 			sensor-bindings = <&encmod LS(TAB) TAB &inc_dec_kp PG_UP PG_DN>;
@@ -80,10 +124,11 @@
     &none &rgb_ug RGB_HUI &rgb_ug RGB_HUD &kp N4          &kp N5        &kp N6           &kp LEFT     &kp DOWN     &kp UP        &kp RIGHT       &trans     &none
     &none &kp N0          &kp N0          &kp N1          &kp N2        &kp N3           &kp DOT      &kp RET
                                                       &out OUT_USB  &out OUT_BLE      &rgb_ug RGB_EFF &kp N7       &kp N8        &bootloader     &reset     &none
-	                      &kp C_PP   &kp LSHIFT &hm LWIN  SPACE &kp BSPC  &kp ESC                &lt NAV RET &mo NUM_SYM &kp RCTRL &kp RSHIFT &rgb_ug RGB_TOG
+	                      &trans     &trans         &trans          &trans &trans           &trans      &trans      &trans    &trans     &rgb_ug RGB_TOG
 			>;
 
 			sensor-bindings = <&inc_dec_kp C_BRI_UP C_BRI_DN &inc_dec_kp PG_UP PG_DN>;
 		};
 	};
 };
+#endif
