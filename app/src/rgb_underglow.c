@@ -167,6 +167,7 @@ static void zmk_rgb_underglow_effect_swirl() {
 
 static void zmk_rgb_underglow_battery_soc() {
     double r = 0.0f, g = 0.0f, b = 0.0f;
+    int num = STRIP_NUM_PIXELS;
 
     if (device_get_binding("BATTERY") == NULL) {
         b = 1.0f;
@@ -175,11 +176,18 @@ static void zmk_rgb_underglow_battery_soc() {
 
         g = soc / 100.0;
         r = (100 - soc) / 100.0;
+
+        num = (soc * STRIP_NUM_PIXELS) / 100;
     }
 
     struct led_rgb rgb = {r : r * 255, g : g * 255, b : b * 255};
-    for (int i = 0; i < STRIP_NUM_PIXELS; i++) {
-        pixels[i] = rgb;
+    for (int i = 0; i < num; i++) {
+        pixels[STRIP_NUM_PIXELS - i - 1] = rgb;
+    }
+
+    struct led_rgb off = {r : 0, g : 0, b : 0};
+    for (int i = num; i < STRIP_NUM_PIXELS; i++) {
+        pixels[STRIP_NUM_PIXELS - i - 1] = off;
     }
 }
 
