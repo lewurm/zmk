@@ -30,7 +30,7 @@
             label = "encoder mods";
             #sensor-binding-cells = <2>;
             modifier-key = <LWIN>;
-            mod-timeout-ms = <650>;
+            mod-timeout-ms = <500>;
         };
     };
 };
@@ -67,7 +67,7 @@
     &none &kp EXCL      &kp AT        &kp HASH        &kp DOLLAR    &kp PRCNT        &kp CARET  &kp AMPS     &kp ASTRK     &trans          &trans     &none
     &none &kp Q         &kp LBRC      &kp RBRC        &kp LPAR      &kp RPAR         &kp LEFT   &kp DOWN     &kp UP        &kp RIGHT       &kp RWIN   &none
     &none &kp N5        &kp LBKT      &kp RBKT        &kp N2        &kp N1           &kp BSPC   &mo NAV
-                                                      &trans        &trans           &kp MINUS  &kp N7       &kp N8        &kp N9          &kp N0     &none
+                                                      &trans        &trans           &kp MINUS  &kp N1       &kp N2        &kp N3          &kp N0     &none
 	                      &trans     &trans         &kp BSPC        &mo NAV &kp LSHIFT       &trans      &trans      &trans    &trans     &trans    
 			>;
 
