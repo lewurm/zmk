@@ -65,10 +65,10 @@
 
 		num_sym {
 			bindings = <
-    &none &kp EXCL      &kp AT        &kp HASH        &kp DOLLAR    &kp PRCNT        &kp CARET  &kp AMPS     &kp ASTRK     &trans          &trans     &none
-    &none &kp Q         &kp LBRC      &kp RBRC        &kp LPAR      &kp RPAR         &kp LEFT   &kp DOWN     &kp UP        &kp RIGHT       &kp RWIN   &none
+    &none &kp EXCL      &kp AT        &kp HASH        &kp DOLLAR    &kp PRCNT        &kp CARET  &kp AMPS     &kp ASTRK     &kp N9          &kp PIPE   &none
+    &none &kp Q         &kp LBRC      &kp RBRC        &kp LPAR      &kp RPAR         &kp LEFT   &kp DOWN     &kp UP        &kp RIGHT       &kp BSLH   &none
     &none &kp N5        &kp LBKT      &kp RBKT        &kp N2        &kp N1           &kp BSPC   &mo NAV
-                                                      &trans        &trans           &kp MINUS  &kp N1       &kp N2        &kp N3          &kp N0     &none
+                                                      &trans        &kp UNDERSCORE   &kp MINUS  &kp N1       &kp N2        &kp N3          &kp N0     &none
 	                      &trans     &trans         &kp BSPC        &mo NAV &kp LSHIFT       &trans      &trans      &trans    &trans     &trans    
 			>;
 
@@ -80,7 +80,7 @@
     &none &kp Q           &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3            &bt BT_CLR   &kp N7       &kp N8        &kp N9      &bt BT_CLR &none
     &none &kp Q           &trans          &kp N4          &kp N5        &kp N6           &kp LEFT     &kp N4       &kp N5        &kp N6      &kp EQUAL  &none
     &none &rgb_ug RGB_HUI &rgb_ug RGB_HUD &kp N1          &kp N2        &kp N3           &rgb_ug RGB_TOG &ext_power EP_TOG
-                                                      &ext_power EP_TOG &out OUT_TOG      &rgb_ug RGB_EFF &kp N1       &kp N2        &kp N3      &kp RET    &none
+                                                      &ext_power EP_TOG &out OUT_TOG      &rgb_ug RGB_EFF &kp N1       &kp N2        &kp N3      &trans &none
 	                      &trans     &trans         &trans    &trans    &trans           &trans      &mo NUM_SYM   &kp N0    &kp DOT    &rgb_ug RGB_TOG
 			>;
 
