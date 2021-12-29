@@ -60,7 +60,7 @@ static int behavior_sensor_rotate_key_press_init(const struct device *dev) {
 
 static int on_sensor_binding_triggered(struct zmk_behavior_binding *binding,
                                        const struct sensor_value value, int64_t timestamp) {
-    struct sensor_value value;
+    // struct sensor_value value;
     int err;
     const struct device *dev = device_get_binding(binding->behavior_dev);
     const struct behavior_sensor_rotate_key_press_config *cfg = dev->config;

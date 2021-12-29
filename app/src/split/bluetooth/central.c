@@ -148,6 +148,7 @@ static int split_central_subscribe(struct bt_conn *conn, struct bt_gatt_subscrib
         LOG_ERR("Subscribe failed (err %d)", err);
         break;
     }
+    return 0;
 }
 
 #if ZMK_KEYMAP_HAS_SENSORS
