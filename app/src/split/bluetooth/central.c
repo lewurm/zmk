@@ -135,8 +135,8 @@ static uint8_t split_central_notify_func(struct bt_conn *conn,
     return BT_GATT_ITER_CONTINUE;
 }
 
-static void split_central_subscribe(struct bt_conn *conn) {
-    int err = bt_gatt_subscribe(conn, &subscribe_params);
+static int split_central_subscribe(struct bt_conn *conn, struct bt_gatt_subscribe_params *params) {
+    int err = bt_gatt_subscribe(conn, params);
     switch (err) {
     case -EALREADY:
         LOG_DBG("[ALREADY SUBSCRIBED]");
@@ -161,7 +161,7 @@ static uint8_t split_central_sensor_desc_discovery_func(struct bt_conn *conn,
 
     if (!bt_uuid_cmp(sensor_discover_params.uuid,
                      BT_UUID_DECLARE_128(ZMK_SPLIT_BT_CHAR_SENSOR_STATE_UUID))) {
-        memcpy(&sensor_uuid, BT_UUID_GATT_CCC, sizeof(uuid));
+        memcpy(&sensor_uuid, BT_UUID_GATT_CCC, sizeof(sensor_uuid));
         sensor_discover_params.uuid = &sensor_uuid.uuid;
         sensor_discover_params.start_handle = attr->handle;
         sensor_discover_params.type = BT_GATT_DISCOVER_DESCRIPTOR;
@@ -212,7 +212,7 @@ static uint8_t split_central_chrc_discovery_func(struct bt_conn *conn,
         subscribe_params.value_handle = bt_gatt_attr_value_handle(attr);
         subscribe_params.notify = split_central_notify_func;
         subscribe_params.value = BT_GATT_CCC_NOTIFY;
-        split_central_subscribe(conn);
+        split_central_subscribe(conn, &subscribe_params);
 
         err = bt_gatt_discover(conn, &discover_params);
         if (err) {
