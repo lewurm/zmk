@@ -24,6 +24,14 @@
             flavor = "tap-preferred";
             bindings = <&kp>, <&kp>;
         };
+
+        encmod: encoder_mods {
+            compatible = "zmk,behavior-sensor-rotate-key-press";
+            label = "encoder mods";
+            #sensor-binding-cells = <2>;
+            modifier-key = <LWIN>;
+            mod-timeout-ms = <2000>;
+        };
     };
 };
 
@@ -63,7 +71,7 @@
 	                      &kp C_PP   &kp LSHIFT &hm LWIN  SPACE &kp BSPC  &kp ESC                &lt NAV RET &mo NUM_SYM &kp RCTRL &kp RSHIFT &kp C_MUTE
 			>;
 
-			sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &inc_dec_kp PG_UP PG_DN>;
+			sensor-bindings = <&encmod LS(TAB) TAB &inc_dec_kp PG_UP PG_DN>;
 		};
 
 		nav {
