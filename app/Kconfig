@@ -381,7 +381,10 @@ config PM_DEVICE
 
 config ZMK_IDLE_SLEEP_TIMEOUT
 	int "Milliseconds of inactivity before entering deep sleep"
+	# 15min
 	default 900000
+	# 10h
+	# default 36000000
 
 #ZMK_SLEEP
 endif
