@@ -26,11 +26,27 @@
             bindings = <&kp>, <&kp>;
         };
 
-        sm: supermods {
+        sm1: supermods {
             compatible = "zmk,behavior-sensor-rotate-key-press";
-            label = "encoder supermod";
+            label = "encoder supermod1";
             #sensor-binding-cells = <2>;
             modifier-key = <LWIN>;
+            mod-timeout-ms = <600>;
+        };
+
+        sm2: supermods {
+            compatible = "zmk,behavior-sensor-rotate-key-press";
+            label = "encoder supermod2";
+            #sensor-binding-cells = <2>;
+            modifier-key = <LSHIFT>;
+            mod-timeout-ms = <600>;
+        };
+
+        sm3: supermods {
+            compatible = "zmk,behavior-sensor-rotate-key-press";
+            label = "encoder supermod3";
+            #sensor-binding-cells = <2>;
+            modifier-key = <RALT>;
             mod-timeout-ms = <600>;
         };
 
@@ -60,7 +76,7 @@
                                       &kp LSHIFT &kp BSPC         &kp RCTRL &mo FUNC
 			>;
 
-			sensor-bindings = <&sm TAB LS(TAB) &inc_dec_kp C_VOL_UP C_VOL_DN>;
+			sensor-bindings = <&inc_dec_kp PG_UP PG_DN &inc_dec_kp C_VOL_UP C_VOL_DN>;
 		};
 
 		func_layer {
@@ -74,7 +90,7 @@
                                        &trans     &mo NAV                                    &trans     &trans
 			>;
 
-			sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
+			sensor-bindings = <&sm3 RIGHT LEFT &sm2 RIGHT LEFT>;
 		};
 
 		nav_layer {
@@ -88,7 +104,7 @@
                                        &trans     &mo NAV                                    &trans     &trans
 			>;
 
-			sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
+			sensor-bindings = <&sm1 TAB LS(TAB) &inc_dec_kp C_VOL_UP C_VOL_DN>;
 		};
 
 	};
