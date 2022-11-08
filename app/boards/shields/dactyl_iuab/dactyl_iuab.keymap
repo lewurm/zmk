@@ -87,7 +87,7 @@
     &rgb_ug RGB_BRI &kp TAB          &kp GRAVE    &trans       &trans        &trans          &kp MINUS &kp EQUAL &trans   &trans    &trans   &trans
                &rgb_ug RGB_EFF &rgb_ug RGB_EFR   &trans                                      &trans          &trans &trans
                                        &trans     &trans                                     &trans     &trans
-                                       &trans     &mo NAV                                    &trans     &trans
+                                       &kp DELETE &mo NAV                                    &trans     &trans
 			>;
 
 			sensor-bindings = <&sm3 RIGHT LEFT &sm2 RIGHT LEFT>;
